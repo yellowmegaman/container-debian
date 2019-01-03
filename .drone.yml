@@ -10,7 +10,7 @@ steps:
   image: yellowmegaman/container-packer:1.3.3
   environment:
     DOCKER_HOST: tcp://serviced:2375
-    FROM_IMAGE: "debian:stretch-slim"
+    FROM_IMAGE: "debian"
     DEBIAN_VERSION: "stretch"
     GOSU_VERSION: 1.11
     PROJECT_NAME: yellowmegaman
@@ -37,7 +37,7 @@ steps:
   image: yellowmegaman/container-packer:1.3.3
   environment:
     DOCKER_HOST: tcp://serviced:2375
-    FROM_IMAGE: "debian:buster-slim"
+    FROM_IMAGE: "debian"
     DEBIAN_VERSION: "buster"
     GOSU_VERSION: 1.11
     PROJECT_NAME: yellowmegaman
