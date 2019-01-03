@@ -1,3 +1,4 @@
+---
 kind: pipeline
 name: debian-stretch
 steps:
@@ -25,6 +26,7 @@ steps:
   commands:
   - packer build "$DRONE_REPO_NAME".json
 
+---
 kind: pipeline
 name: debian-buster
 steps:
