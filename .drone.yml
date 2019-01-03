@@ -78,8 +78,8 @@ steps:
       from_secret: drone_token
     fork: true
     repositories:
-      - yellowmegaman/openjdk
-      - yellowmegaman/nomad
+      - yellowmegaman/container-openjdk
+      - yellowmegaman/container-nomad
 
 depends_on:
 - debian-stretch
