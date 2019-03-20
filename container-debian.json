@@ -29,7 +29,7 @@
         "inline": [
           "mkdir -p /usr/share/man/man1",
           "apt-get update",
-          "apt-get install -y locales curl gnupg2 gettext",
+          "apt-get install -y locales curl gnupg2 gettext procps",
           "apt-get upgrade -y",
           "apt-get autoremove --purge -y",
           "apt-get clean",
