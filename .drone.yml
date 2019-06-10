@@ -30,7 +30,7 @@ steps:
 - name: check-dockerhost
   image: alpine:3.8
   commands:
-  - sleep 1
+  - sleep $(shuf -i1-10 -n1)
   - nc -zv dockerhost 2375
 
 - name: pack
@@ -84,7 +84,7 @@ steps:
 - name: check-dockerhost
   image: alpine:3.8
   commands:
-  - sleep 1
+  - sleep $(shuf -i1-10 -n1)
   - nc -zv dockerhost 2375
 
 - name: pack
