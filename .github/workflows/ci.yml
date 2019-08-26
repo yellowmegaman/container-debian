@@ -28,3 +28,5 @@ jobs:
         DEBIAN_VERSION: ${{ matrix.debian_version }}
         GOSU_VERSION: 1.11
         PROJECT_NAME: yellowmegaman
+      with:
+        version: ${{ matrix.debian_version }}
