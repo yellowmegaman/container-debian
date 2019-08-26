@@ -7,7 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      debian_version: [buster, bullseye]
+      matrix:
+        debian_version: [buster, bullseye]
     steps:
     - name: checkout the code
       uses: actions/checkout@v1
@@ -28,5 +29,3 @@ jobs:
         DEBIAN_VERSION: ${{ matrix.debian_version }}
         GOSU_VERSION: 1.11
         PROJECT_NAME: yellowmegaman
-      with:
-        version: ${{ matrix.debian_version }}
