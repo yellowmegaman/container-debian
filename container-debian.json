@@ -1,6 +1,6 @@
 {
   "variables": {
-    "app":             "{{env `GITHUB_WORKFLOW`}}",
+    "app":             "{{env `GITHUB_WORKFLOW`}}-debian",
     "from_image":      "debian:{{env `DEBIAN_VERSION`}}-slim",
     "project_name":    "{{env `PROJECT_NAME`}}",
     "gosu_ver":        "{{env `GOSU_VERSION`}}",
