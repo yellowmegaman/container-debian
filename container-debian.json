@@ -1,7 +1,7 @@
 {
   "variables": {
-    "app":             "{{env `DRONE_REPO_NAME`}}",
-    "from_image":      "{{env `FROM_IMAGE`}}:{{env `DEBIAN_VERSION`}}-slim",
+    "app":             "{{env `GITHUB_WORKFLOW`}}",
+    "from_image":      "debian:{{env `DEBIAN_VERSION`}}-slim",
     "project_name":    "{{env `PROJECT_NAME`}}",
     "gosu_ver":        "{{env `GOSU_VERSION`}}",
     "docker_username": "{{env `DOCKER_USERNAME`}}",

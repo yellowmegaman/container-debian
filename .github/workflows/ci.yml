@@ -1,4 +1,4 @@
-name: heyho
+name: container-debian
 on:
   push:
   schedule:
@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      debian_version: [buster, bullseye]
     steps:
     - name: checkout the code
       uses: actions/checkout@v1
@@ -13,14 +15,16 @@ jobs:
       run: env | sort
     - name: get packer
       run: |
-        date
         wget -q https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip
         unzip -q packer_1.4.3_linux_amd64.zip
         rm packer_1.4.3_linux_amd64.zip
-#    - name: build
-#      run: ./packer build container-debian.json
-#      env:
-#        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-#        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-#        QUAY_USERNAME: ${{ secrets.QUAY_USERNAME }}
-#        QUAY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
+    - name: build
+      run: $GITHUB_WORKSPACE/packer build container-debian.json
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        QUAY_USERNAME: ${{ secrets.QUAY_USERNAME }}
+        QUAY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
+        DEBIAN_VERSION: ${{ matrix.debian_version }}
+        GOSU_VERSION: 1.11
+        PROJECT_NAME: yellowmegaman
