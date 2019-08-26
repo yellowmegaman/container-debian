@@ -1,0 +1,26 @@
+name: heyho
+on:
+  push:
+  schedule:
+  - cron:  '35 19 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the code
+      uses: actions/checkout@v1
+    - name: the-more-you-know
+      run: env | sort
+    - name: get packer
+      run: |
+        date
+        wget -q https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip
+        unzip -q packer_1.4.3_linux_amd64.zip
+        rm packer_1.4.3_linux_amd64.zip
+#    - name: build
+#      run: ./packer build container-debian.json
+#      env:
+#        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+#        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+#        QUAY_USERNAME: ${{ secrets.QUAY_USERNAME }}
+#        QUAY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
